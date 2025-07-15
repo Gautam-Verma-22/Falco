@@ -1,0 +1,54 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const DroneRepairSection = () => (
+  <section className="drone-repair-section">
+    <div className="drone-repair-container">
+      <motion.div
+        className="drone-repair-text"
+        initial={{ opacity: 0, x: -80, y: -80 }}
+        whileInView={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 1.3, ease: "easeOut" }}
+      >
+        <motion.div
+          className="drone-repair-label"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
+        >
+          FALCO ROBOTICS
+        </motion.div>
+        <motion.h2
+          className="drone-repair-title"
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.1, ease: "easeOut", delay: 0.1 }}
+        >
+          We Offer High-Performance Drones with Expert Repair
+        </motion.h2>
+        <motion.div
+          className="drone-repair-desc"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease: "easeOut", delay: 0.2 }}
+        >
+          Our drones offer faster and more efficient aerial imagery than satellites or manned aircraft. We specialize in drone sales, expert repair services, and the production of high-resolution elevation data and orthomosaics—all under one roof.
+        </motion.div>
+        <div className="drone-repair-btns">
+          <button className="drone-repair-btn">SHOP NOW</button>
+          <button className="drone-repair-btn">DRONE REPAIR – BOOK NOW</button>
+        </div>
+      </motion.div>
+      <motion.div
+        className="drone-repair-image-wrapper"
+        initial={{ opacity: 0, x: 80, y: 80 }}
+        whileInView={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 1.3, ease: "easeOut", delay: 0.2 }}
+      >
+        <img src="/with-white.png" alt="Drone Repair" className="drone-repair-image" />
+      </motion.div>
+    </div>
+  </section>
+);
+
+export default DroneRepairSection; 
