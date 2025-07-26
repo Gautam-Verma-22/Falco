@@ -1,0 +1,15 @@
+.footer-new-logo {
+  height: 65px;
+  width: 240px;
+  object-fit: fill;
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s ease;
+  margin-bottom: 1.2rem;
+  transform: scaleX(1.2);
+  margin-left: 25px;
+}
+
+.dark .footer-new-logo {
+  mix-blend-mode: normal;
+  filter: none;
+}

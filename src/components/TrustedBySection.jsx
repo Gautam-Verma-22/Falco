@@ -10,7 +10,7 @@ const logos = [
   "/trustedby6.png",
   "/trustedby7.png",
   "/trustedby8.png",
-];
+].filter(logo => logo); // Filter out any empty strings
 
 const TrustedBySection = () => {
   const rowRef = useRef();
@@ -49,7 +49,7 @@ const TrustedBySection = () => {
           Trusted by Innovators Across Industries
         </motion.h2>
         <motion.div className="trusted-desc" initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.1, ease: "easeOut", delay: 0.2 }}>
-          From agriculture to advanced surveillance, Falco Robotics delivers reliable and innovative drone solutions that drive progress.<br />
+          From agriculture to advanced surveillance, Future Sight Robotics delivers reliable and innovative drone solutions that drive progress.<br />
           Our expertise supports industries in achieving efficiency, precision, and sustainability, making us a trusted partner for trailblazers everywhere.
         </motion.div>
       </div>

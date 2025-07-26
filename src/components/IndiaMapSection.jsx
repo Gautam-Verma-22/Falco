@@ -6,35 +6,52 @@ const IndiaMapSection = () => (
     <div className="india-map-container">
       <motion.div
         className="india-map-image-wrapper"
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.3, ease: "easeOut" }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <img src="/Outline-Map-of-India-with-States.png" alt="India Map" className="india-map-image" />
       </motion.div>
       <motion.div
         className="india-map-content"
-        initial={{ opacity: 0, x: 80 }}
+        initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.3, ease: "easeOut", delay: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
       >
-        <motion.h2
-          className="india-map-title"
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-        >
-          Empower Your Operations with Advanced Drone Technology
-        </motion.h2>
+        <div className="india-map-header">
+          <motion.h2
+            className="india-map-title"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            Empower Your Operations with Advanced Drone Technology
+          </motion.h2>
+          <motion.div 
+            className="title-underline"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          />
+        </div>
         <motion.div
           className="india-map-desc"
-          initial={{ opacity: 0, x: 60 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.1, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
           Discover the wide range of solutions you can perform using our advanced drones — from surveying and inspection to surveillance, delivery, and beyond. Empower your operations with reliable, cutting-edge technology designed to meet the unique demands of your industry.
         </motion.div>
-        <button className="india-map-btn india-map-btn-center">Explore Our Solutions</button>
+        <motion.button 
+          className="india-map-btn"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Explore Our Solutions
+        </motion.button>
       </motion.div>
     </div>
   </section>

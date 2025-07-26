@@ -1,6 +1,6 @@
-# Falco Robotics Landing Page
+# Future Sight Robotics Landing Page
 
-This is a responsive React + Tailwind CSS landing page for Falco Robotics.
+This is a responsive React + Tailwind CSS landing page for Future Sight Robotics.
 
 ## Features
 - Hero section with background image, overlay, title, subtext, and CTA button
@@ -59,4 +59,4 @@ You can deploy this app using Vercel, Netlify, or any static hosting provider.
 - React Icons
 
 ---
-For any issues, contact: order@falcodrones.com 
+For any issues, contact: order@futuresightdrones.com 

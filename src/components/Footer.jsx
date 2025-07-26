@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
+import "./Footer.css";
 
-const Footer = () => (
+const Footer = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setDarkMode(isDark);
+
+    // Create a mutation observer to watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDark = document.documentElement.classList.contains('dark');
+          setDarkMode(isDark);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
   <footer className="footer-new">
     <div className="footer-new-container">
       <div className="footer-new-col footer-new-brand">
-        <img src="/forlightmode.png" alt="Falco Robotics Logo" className="footer-new-logo" />
+        <img 
+          src={darkMode ? "/DarkModeLogo.png" : "/LightMode.png"}
+          alt="Future Sight Robotics Logo" 
+          className="footer-new-logo" 
+        />
         <div className="footer-new-desc">
-          <em>At Falco Robotics, we create high-performance drones and robotic solutions to boost efficiency, safety, and precision across industries</em>
+          <em>At Future Sight Robotics, we create high-performance drones and robotic solutions to boost efficiency, safety, and precision across industries</em>
         </div>
       </div>
       <div className="footer-new-col">
@@ -33,7 +63,7 @@ const Footer = () => (
         <div className="footer-new-contact">
           <div><b>Add-</b> A-22, Sector 4, Noida, Uttar Pradesh 201301</div>
           <div><b>Call-</b> +91 9354150989</div>
-          <div><b>Email–</b> info@falcorobotics.in</div>
+          <div><b>Email–</b> info@futuresightrobotics.in</div>
         </div>
       </div>
       <div className="footer-new-col footer-new-subscribe">
@@ -52,9 +82,10 @@ const Footer = () => (
       </div>
     </div>
     <div className="footer-new-bottom">
-      <span>&copy; {new Date().getFullYear()} Falco Robotics. All rights reserved.</span>
+      <span>&copy; {new Date().getFullYear()} Future Sight Robotics. All rights reserved.</span>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer; 
