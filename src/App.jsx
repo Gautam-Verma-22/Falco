@@ -4,6 +4,9 @@ import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 import { motion } from "framer-motion";
 import Threads from "./components/Threads";
+import SplashCursor from './components/cursor'
+
+
 
 const VideoShowcase = lazy(() => import("./components/VideoShowcase"));
 const IndiaMapSection = lazy(() => import("./components/IndiaMapSection"));
@@ -22,6 +25,7 @@ const fadeIn = {
 function App() {
   return (
     <div className="font-sans scroll-smooth" style={{ width: '100%', overflowX: 'hidden', position: 'relative' }}>
+      <SplashCursor />
       <Threads
         color={[0.2, 0.4, 0.8]}
         amplitude={0.8}

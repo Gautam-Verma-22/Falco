@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
-import "./Navbar.css";
 
 // Navigation links
 const navLinks = [
-  { href: "#about", label: "About Us" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#services", label: "Services" },
-  { href: "#shop", label: "Shop" },
-  { href: "#cart", label: "Cart" },
+  { href: "#hero", label: "Home" },
+  { href: "#showcase", label: "Showcase" },
+  { href: "#india-map", label: "Services" },
+  { href: "#drone-repair", label: "Repair" },
+  { href: "#press-release", label: "Press" },
+  { href: "#stats", label: "Stats" },
+  { href: "#trusted", label: "Partners" },
   { href: "#contact", label: "Contact" },
 ];
 
 // Animation variants
 const overlayVariants = {
-  hidden: { opacity: 0, scale: 0.98, filter: "blur(8px)" },
-  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.25 } },
-  exit: { opacity: 0, scale: 0.98, filter: "blur(8px)", transition: { duration: 0.18 } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.3 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+};
+
+const menuVariants = {
+  hidden: { x: "-100%" },
+  visible: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
+  exit: { x: "-100%", transition: { type: "spring", stiffness: 300, damping: 30 } },
 };
 
 const linkVariants = {
@@ -32,7 +39,6 @@ const linkVariants = {
     },
   }),
 };
-
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -62,10 +68,18 @@ const Navbar = () => {
 
   const handleThemeToggle = () => setDarkMode((prev) => !prev);
 
+  const handleLinkClick = (href) => {
+    setMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={`navbar ${scrolled ? "navbar-shadow" : ""}`}>
       <div className="navbar-container">
-        <a href="/" className="brand" style={{ transform: 'none' }}>
+        <a href="/" className="brand">
           <img 
             src={darkMode ? "/DarkModeLogo.png" : "/LightMode.png"} 
             alt="Future Sight Robotics" 
@@ -73,11 +87,15 @@ const Navbar = () => {
           />
         </a>
         
-        <div className="navbar-links">
+        <div className="navbar-links desktop-only">
           {navLinks.map((link) => (
             <motion.a
               key={link.href}
               href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick(link.href);
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -89,7 +107,7 @@ const Navbar = () => {
         <div className="nav-controls">
           <button
             className="theme-toggle"
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={handleThemeToggle}
             aria-label="Toggle theme"
           >
             {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
@@ -118,10 +136,10 @@ const Navbar = () => {
             />
             <motion.div
               className="mobile-menu"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              variants={menuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
             >
               <div className="mobile-menu-header">
                 <button
@@ -137,11 +155,14 @@ const Navbar = () => {
                   <motion.a
                     key={link.href}
                     href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinkClick(link.href);
+                    }}
                     variants={linkVariants}
                     initial="hidden"
                     animate="visible"
                     custom={i}
-                    onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
                   </motion.a>

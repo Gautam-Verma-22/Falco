@@ -61,7 +61,7 @@ const Footer = () => {
       <div className="footer-new-col">
         <div className="footer-new-heading">Contact</div>
         <div className="footer-new-contact">
-          <div><b>Add-</b> A-22, Sector 4, Noida, Uttar Pradesh 201301</div>
+          <div><b>Add-</b> A-22, Future Sight Robotics</div>
           <div><b>Call-</b> +91 9354150989</div>
           <div><b>Email–</b> info@futuresightrobotics.in</div>
         </div>

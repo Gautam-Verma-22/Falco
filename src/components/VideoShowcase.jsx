@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShieldAlt, FaIndustry, FaSeedling, FaRocket } from "react-icons/fa";
 import { motion } from "framer-motion";
+import LazyImage from "./LazyImage";
 
 const VideoShowcase = () => (
   <section className="video-section" id="showcase">
@@ -72,7 +73,11 @@ const VideoShowcase = () => (
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.4 }}
         >
-          <img src="/falco.jpg" alt="Falco Drone" className="drone-image" />
+          <LazyImage 
+            src="/falco.jpg" 
+            alt="Falco Drone" 
+            className="drone-image" 
+          />
         </motion.div>
 
         <motion.div 

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import LazyImage from "./LazyImage";
 
 const IndiaMapSection = () => (
   <section className="india-map-section">
@@ -10,7 +11,11 @@ const IndiaMapSection = () => (
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <img src="/Outline-Map-of-India-with-States.png" alt="India Map" className="india-map-image" />
+        <LazyImage 
+          src="/Outline-Map-of-India-with-States.png" 
+          alt="India Map" 
+          className="india-map-image" 
+        />
       </motion.div>
       <motion.div
         className="india-map-content"
@@ -42,15 +47,15 @@ const IndiaMapSection = () => (
         >
           Discover the wide range of solutions you can perform using our advanced drones — from surveying and inspection to surveillance, delivery, and beyond. Empower your operations with reliable, cutting-edge technology designed to meet the unique demands of your industry.
         </motion.div>
-        <motion.button 
+        <motion.button
           className="india-map-btn"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Explore Our Solutions
+          Explore Solutions
         </motion.button>
       </motion.div>
     </div>

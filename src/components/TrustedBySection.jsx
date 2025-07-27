@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import LazyImage from "./LazyImage";
 
 const logos = [
   "/trustedby1.png",
@@ -61,7 +62,7 @@ const TrustedBySection = () => {
         >
           {[...logos, ...logos].map((src, i) => (
             <div className="trusted-logo-wrapper" key={i}>
-              <img src={src} alt={`Trusted Logo ${i + 1}`} className="trusted-logo" />
+              <LazyImage src={src} alt={`Trusted Logo ${i + 1}`} className="trusted-logo" />
             </div>
           ))}
         </div>

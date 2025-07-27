@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import LazyImage from "./LazyImage";
 
 const pressImages = [
   { src: "/press1.png", alt: "Press Logo 1" },
@@ -51,7 +52,7 @@ const PressReleaseSection = () => (
             delay: i * 0.1 
           }}
         >
-          <img src={img.src} alt={img.alt} className="press-logo" />
+          <LazyImage src={img.src} alt={img.alt} className="press-logo" />
         </motion.div>
       ))}
     </div>

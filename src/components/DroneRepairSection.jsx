@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import LazyImage from "./LazyImage";
 
 const DroneRepairSection = () => (
   <section className="drone-repair-section">
@@ -48,19 +49,19 @@ const DroneRepairSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <motion.button 
+          <motion.button
             className="drone-repair-btn shop-now"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            SHOP NOW
+            Shop Now
           </motion.button>
-          <motion.button 
+          <motion.button
             className="drone-repair-btn book-now"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            DRONE REPAIR – BOOK NOW
+            Book Repair
           </motion.button>
         </motion.div>
       </motion.div>
@@ -68,9 +69,13 @@ const DroneRepairSection = () => (
         className="drone-repair-image-wrapper"
         initial={{ opacity: 0, x: 80 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.3, ease: "easeOut", delay: 0.2 }}
+        transition={{ duration: 1.3, ease: "easeOut" }}
       >
-        <img src="/with-white.png" alt="Drone Repair" className="drone-repair-image" />
+        <LazyImage 
+          src="/with-white.png" 
+          alt="Drone Repair" 
+          className="drone-repair-image" 
+        />
       </motion.div>
     </div>
   </section>
